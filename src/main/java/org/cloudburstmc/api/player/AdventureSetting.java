@@ -1,5 +1,7 @@
 package org.cloudburstmc.api.player;
 
+// LUKE'S NOTE: Do we really need to expose the adventure settings to the player?
+//              Could we not have API methods for this stuff? Or a more API friendly PlayerFlags enum?
 public enum AdventureSetting {
     WORLD_IMMUTABLE(true),
     NO_PVM(true),

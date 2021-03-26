@@ -14,12 +14,6 @@ import java.util.OptionalLong;
 import java.util.UUID;
 
 public interface Player extends Entity, InventoryHolder {
-    /**
-     * Checks if this player is currently online.
-     *
-     * @return true if they are online
-     */
-    boolean isOnline();
 
     /**
      * Returns the name of this player.
@@ -27,6 +21,13 @@ public interface Player extends Entity, InventoryHolder {
      * @return Player name
      */
     String getName();
+
+    /**
+     * Checks if this player is currently online.
+     *
+     * @return true if they are online
+     */
+    boolean isOnline();
 
     UUID getServerId();
 
@@ -125,12 +126,6 @@ public interface Player extends Entity, InventoryHolder {
     float getMovementSpeed();
 
     Level getLevel();
-
-    boolean isSpectator();
-
-    boolean isCreative();
-
-    boolean isSurvival();
 
     void resetInAirTicks();
 
