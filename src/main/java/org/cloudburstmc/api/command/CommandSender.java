@@ -36,11 +36,4 @@ public interface CommandSender extends Permissible {
      * @return The name of the command sender.
      */
     String getName();
-
-    /**
-     * Checks if this command sender is a player.
-     *
-     * @return true if the sender is a player
-     */
-    boolean isPlayer();
 }

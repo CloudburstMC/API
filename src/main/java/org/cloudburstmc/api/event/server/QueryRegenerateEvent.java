@@ -51,9 +51,9 @@ public final class QueryRegenerateEvent extends ServerEvent {
         this.serverName = server.getMotd();
         //this.listPlugins = server.getConfig().getSettings().isQueryPlugins();
         this.plugins = server.getPluginManager().getAllPlugins().toArray(new PluginContainer[0]);
-        this.players = server.getOnlinePlayers().values().toArray(new Player[0]);
+        this.players = server.getOnlinePlayers().toArray(new Player[0]);
         this.gameType = server.getGamemode().isSurvival() ? "SMP" : "CMP";
-        this.version = server.getVersion();
+        this.version = server.getMinecraftVersion();
         this.server_engine = server.getName() + " " + server.getImplementationVersion();
         this.map = server.getDefaultLevel() == null ? "unknown" : server.getDefaultLevel().getName();
         this.numPlayers = this.players.length;

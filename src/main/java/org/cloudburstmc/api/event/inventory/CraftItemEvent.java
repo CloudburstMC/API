@@ -1,12 +1,12 @@
 package org.cloudburstmc.api.event.inventory;
 
-import com.google.common.collect.Lists;
 import org.cloudburstmc.api.event.Cancellable;
 import org.cloudburstmc.api.event.Event;
 import org.cloudburstmc.api.inventory.Recipe;
 import org.cloudburstmc.api.item.ItemStack;
 import org.cloudburstmc.api.player.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +31,7 @@ public final class CraftItemEvent extends Event implements Cancellable {
 
     public CraftItemEvent(Player player, ItemStack[] input, Recipe recipe) {
         this.player = player;
-        this.input = Lists.newArrayList(input);
+        this.input = new ArrayList<>();
         this.recipe = recipe;
     }
 
