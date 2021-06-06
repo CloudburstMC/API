@@ -18,13 +18,14 @@ public final class BlockIds {
     public static final Identifier ACTIVATOR_RAIL = Identifier.fromString("activator_rail");
     public static final Identifier AIR = Identifier.fromString("air");
     public static final Identifier ALLOW = Identifier.fromString("allow");
+    public static final Identifier AMETHYST_BLOCK = Identifier.fromString("amethyst_block");
     public static final Identifier AMETHYST_CLUSTER = Identifier.fromString("amethyst_cluster");
     public static final Identifier ANCIENT_DEBRIS = Identifier.fromString("ancient_debris");
     public static final Identifier ANDESITE_STAIRS = Identifier.fromString("andesite_stairs");
     public static final Identifier ANVIL = Identifier.fromString("anvil");
+    public static final Identifier AZALEA = Identifier.fromString("azalea");
     public static final Identifier AZALEA_LEAVES = Identifier.fromString("azalea_leaves");
     public static final Identifier AZALEA_LEAVES_FLOWERED = Identifier.fromString("azalea_leaves_flowered");
-    public static final Identifier AZALEA = Identifier.fromString("azalea");
     public static final Identifier BAMBOO = Identifier.fromString("bamboo");
     public static final Identifier BAMBOO_SAPLING = Identifier.fromString("bamboo_sapling");
     public static final Identifier BARREL = Identifier.fromString("barrel");
@@ -94,6 +95,7 @@ public final class BlockIds {
     public static final Identifier COAL_ORE = Identifier.fromString("coal_ore");
     public static final Identifier COBBLED_DEEPSLATE = Identifier.fromString("cobbled_deepslate");
     public static final Identifier COBBLED_DEEPSLATE_DOUBLE_SLAB = Identifier.fromString("cobbled_deepslate_double_slab");
+    public static final Identifier COBBLED_DEEPSLATE_SLAB = Identifier.fromString("cobbled_deepslate_slab");
     public static final Identifier COBBLED_DEEPSLATE_STAIRS = Identifier.fromString("cobbled_deepslate_stairs");
     public static final Identifier COBBLED_DEEPSLATE_WALL = Identifier.fromString("cobbled_deepslate_wall");
     public static final Identifier COBBLESTONE = Identifier.fromString("cobblestone");
@@ -115,7 +117,8 @@ public final class BlockIds {
     public static final Identifier CORAL_FAN_HANG = Identifier.fromString("coral_fan_hang");
     public static final Identifier CORAL_FAN_HANG2 = Identifier.fromString("coral_fan_hang2");
     public static final Identifier CORAL_FAN_HANG3 = Identifier.fromString("coral_fan_hang3");
-    public static final Identifier CRACKED_DEEPSLATE_TILES = Identifier.fromString("cracked_deepslate_TILES");
+    public static final Identifier CRACKED_DEEPSLATE_TILES = Identifier.fromString("cracked_deepslate_tiles");
+    public static final Identifier CRACKED_DEEPSLATE_BRICKS = Identifier.fromString("cracked_deepslate_bricks");
     public static final Identifier CRACKED_NETHER_BRICKS = Identifier.fromString("cracked_nether_bricks");
     public static final Identifier CRACKED_POLISHED_BLACKSTONE_BRICKS = Identifier.fromString("cracked_polished_blackstone_bricks");
     public static final Identifier CRAFTING_TABLE = Identifier.fromString("crafting_table");
@@ -165,8 +168,10 @@ public final class BlockIds {
     public static final Identifier DEEPSLATE_EMERALD_ORE = Identifier.fromString("deepslate_emerald_ore");
     public static final Identifier DEEPSLATE_GOLD_ORE = Identifier.fromString("deepslate_gold_ore");
     public static final Identifier DEEPSLATE_IRON_ORE = Identifier.fromString("deepslate_iron_ore");
+    public static final Identifier DEEPSLATE_LAPIS_LAZULI_ORE = Identifier.fromString("deepslate)lapis_lazuli_ore");
     public static final Identifier DEEPSLATE_REDSTONE_ORE = Identifier.fromString("deepslate_redstone_ore");
     public static final Identifier DEEPSLATE_TILE_DOUBLE_SLAB = Identifier.fromString("deepslate_tile_double_slab");
+    public static final Identifier DEEPSLATE_TILE_SLAB = Identifier.fromString("deepslate_tile_slab");
     public static final Identifier DEEPSLATE_TILE_STAIRS = Identifier.fromString("deepslate_tile_stairs");
     public static final Identifier DEEPSLATE_TILE_WALL = Identifier.fromString("deepslate_tile_wall");
     public static final Identifier DEEPSLATE_TILES = Identifier.fromString("deepslate_tiles");
@@ -496,6 +501,7 @@ public final class BlockIds {
     public static final Identifier QUARTZ_ORE = Identifier.fromString("quartz_ore");
     public static final Identifier QUARTZ_STAIRS = Identifier.fromString("quartz_stairs");
     public static final Identifier RAIL = Identifier.fromString("rail");
+    public static final Identifier RAW_COPPER_BLOCK = Identifier.fromString("raw_copper");
     public static final Identifier RAW_GOLD_BLOCK = Identifier.fromString("raw_gold_block");
     public static final Identifier RAW_IRON_BLOCK = Identifier.fromString("raw_iron_block");
     public static final Identifier REDSTONE_BLOCK = Identifier.fromString("redstone_block");
