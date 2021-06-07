@@ -32,7 +32,7 @@ public class BlockTraits {
     public static final EnumBlockTrait<ClusterSize> CLUSTER_SIZE = EnumBlockTrait.of("cluster_size", ClusterSize.class, ClusterSize.SMALL);
     public static final EnumBlockTrait<DyeColor> COLOR = EnumBlockTrait.of("color", DyeColor.class);
     public static final IntegerBlockTrait COMPOSTER_FILL_LEVEL = IntegerBlockTrait.from("composter_fill_level", 9);
-    public static final EnumBlockTrait<CopperType> COPPER_TYPE = EnumBlockTrait.of("copper_type", CopperType.class, CopperType.UNCUT);
+    public static final EnumBlockTrait<CopperType> COPPER_TYPE = EnumBlockTrait.of("copper_type", CopperType.class, CopperType.RAW);
     public static final EnumBlockTrait<DyeColor> CORAL_COLOR = EnumBlockTrait.of("coral_color", DyeColor.class,
             DyeColor.BLUE, DyeColor.PINK, DyeColor.PURPLE, DyeColor.RED, DyeColor.YELLOW);
     public static final EnumBlockTrait<DyeColor> CORAL_HANG_COLOR = EnumBlockTrait.of("coral_color", "coral_hang_type_bit", DyeColor.class,
@@ -125,6 +125,7 @@ public class BlockTraits {
     public static final BooleanBlockTrait IS_HANGING = BooleanBlockTrait.of("is_hanging", "hanging");
     public static final BooleanBlockTrait IS_HEAD_PIECE = BooleanBlockTrait.of("is_head_piece", "head_piece_bit");
     public static final BooleanBlockTrait IS_IN_WALL = BooleanBlockTrait.of("is_in_wall", "in_wall_bit");
+    public static final BooleanBlockTrait IS_INFESTED = BooleanBlockTrait.of("is_infested");
     public static final BooleanBlockTrait IS_OCCUPIED = BooleanBlockTrait.of("is_occupied", "occupied_bit");
     public static final BooleanBlockTrait IS_OPEN = BooleanBlockTrait.of("is_open", "open_bit");
     public static final BooleanBlockTrait IS_OUTPUT_LIT = BooleanBlockTrait.of("is_output_lit", "output_lit_bit");

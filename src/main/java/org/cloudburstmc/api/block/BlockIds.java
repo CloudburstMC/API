@@ -168,7 +168,7 @@ public final class BlockIds {
     public static final Identifier DEEPSLATE_EMERALD_ORE = Identifier.fromString("deepslate_emerald_ore");
     public static final Identifier DEEPSLATE_GOLD_ORE = Identifier.fromString("deepslate_gold_ore");
     public static final Identifier DEEPSLATE_IRON_ORE = Identifier.fromString("deepslate_iron_ore");
-    public static final Identifier DEEPSLATE_LAPIS_LAZULI_ORE = Identifier.fromString("deepslate)lapis_lazuli_ore");
+    public static final Identifier DEEPSLATE_LAPIS_ORE = Identifier.fromString("deepslate_lapis_ore");
     public static final Identifier DEEPSLATE_REDSTONE_ORE = Identifier.fromString("deepslate_redstone_ore");
     public static final Identifier DEEPSLATE_TILE_DOUBLE_SLAB = Identifier.fromString("deepslate_tile_double_slab");
     public static final Identifier DEEPSLATE_TILE_SLAB = Identifier.fromString("deepslate_tile_slab");
@@ -501,7 +501,7 @@ public final class BlockIds {
     public static final Identifier QUARTZ_ORE = Identifier.fromString("quartz_ore");
     public static final Identifier QUARTZ_STAIRS = Identifier.fromString("quartz_stairs");
     public static final Identifier RAIL = Identifier.fromString("rail");
-    public static final Identifier RAW_COPPER_BLOCK = Identifier.fromString("raw_copper");
+    public static final Identifier RAW_COPPER_BLOCK = Identifier.fromString("raw_copper_block");
     public static final Identifier RAW_GOLD_BLOCK = Identifier.fromString("raw_gold_block");
     public static final Identifier RAW_IRON_BLOCK = Identifier.fromString("raw_iron_block");
     public static final Identifier REDSTONE_BLOCK = Identifier.fromString("redstone_block");
@@ -655,7 +655,7 @@ public final class BlockIds {
     public static final Identifier WAXED_WEATHERED_CUT_COPPER_SLAB = Identifier.fromString("waxed_weathered_cut_copper_slab");
     public static final Identifier WAXED_WEATHERED_CUT_COPPER_STAIRS = Identifier.fromString("waxed_weathered_cut_copper_stairs");
     public static final Identifier WAXED_WEATHERED_DOUBLE_CUT_COPPER_SLAB = Identifier.fromString("waxed_weathered_double_cut_copper_slab");
-    public static final Identifier WEATHERED_COPPER = Identifier.fromString("weatherd_copper");
+    public static final Identifier WEATHERED_COPPER = Identifier.fromString("weathered_copper");
     public static final Identifier WEATHERED_CUT_COPPER = Identifier.fromString("weathered_cut_copper");
     public static final Identifier WEATHERED_CUT_COPPER_SLAB = Identifier.fromString("weathered_cut_copper_slab");
     public static final Identifier WEATHERED_CUT_COPPER_STAIRS = Identifier.fromString("weathered_cut_copper_stairs");
