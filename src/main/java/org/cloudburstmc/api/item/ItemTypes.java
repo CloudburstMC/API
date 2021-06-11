@@ -240,6 +240,17 @@ public class ItemTypes {
     public static final ItemType CONCRETE_POWDER = IntItem.builder().id(ItemIds.CONCRETE_POWDER).maxStackSize(64).data(DyeColor.class).blockType(BlockTypes.CONCRETE_POWDER).build();
     public static final ItemType UNKNOWN = IntItem.builder().id(Identifiers.UNKNOWN).build();
 
+    public static final ItemType AMETHYST_SHARD = IntItem.builder().id(ItemIds.AMETHYST_SHARD).build();
+    public static final ItemType GLOW_BERRIES = IntItem.builder().id(ItemIds.GLOW_BERRIES).build();
+    public static final ItemType GLOW_INK_SAC = IntItem.builder().id(ItemIds.GLOW_INK_SAC).build();
+    public static final ItemType GOAT_HORN = IntItem.builder().id(ItemIds.GOAT_HORN).build();
+    public static final ItemType GLOW_FRAME = IntItem.builder().id(ItemIds.GLOW_FRAME).build();
+    public static final ItemType RAW_COPPER = IntItem.builder().id(ItemIds.RAW_COPPER).build();
+    public static final ItemType RAW_GOLD = IntItem.builder().id(ItemIds.RAW_GOLD).build();
+    public static final ItemType RAW_IRON = IntItem.builder().id(ItemIds.RAW_IRON).build();
+    public static final ItemType SPYGLASS = IntItem.builder().id(ItemIds.SPYGLASS).build();
+    public static final ItemType COPPER_INGOT = IntItem.builder().id(ItemIds.COPPER_INGOT).build();
+
     public static final class IntItem implements ItemType {
         private final Identifier id;
         private final int maxStackSize;

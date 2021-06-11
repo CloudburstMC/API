@@ -378,4 +378,20 @@ public final class ItemIds {
     public static final Identifier PORTFOLIO = Identifier.fromString("portfolio");
 
     public static final Identifier CONCRETE_POWDER = Identifier.fromString("concrete_powder");
+
+    public static final Identifier AMETHYST_SHARD = Identifier.fromString("minecraft:amethyst_shard");
+    public static final Identifier AXOLOTL_BUCKET = Identifier.fromString("minecraft:axolotl_bucket");
+    public static final Identifier AXOLOTL_SPAWN_EGG = Identifier.fromString("minecraft:axolotl_spawn_egg");
+    public static final Identifier GLOW_BERRIES = Identifier.fromString("minecraft:glow_berries");
+    public static final Identifier GLOW_INK_SAC = Identifier.fromString("minecraft:glow_ink_sac");
+    public static final Identifier GLOW_SQUID_SPAWN_EGG = Identifier.fromString("minecraft:glow_squid_spawn_egg");
+    public static final Identifier GOAT_HORN = Identifier.fromString("minecraft:goat_horn");
+    public static final Identifier GOAT_SPAWN_EGG = Identifier.fromString("minecraft:goat_spawn_egg");
+    public static final Identifier GLOW_FRAME = Identifier.fromString("minecraft:item.glow_frame");
+    public static final Identifier POWDER_SNOW_BUCKET = Identifier.fromString("minecraft:powder_snow_bucket");
+    public static final Identifier RAW_COPPER = Identifier.fromString("minecraft:raw_copper");
+    public static final Identifier RAW_GOLD = Identifier.fromString("minecraft:raw_gold");
+    public static final Identifier RAW_IRON = Identifier.fromString("minecraft:raw_iron");
+    public static final Identifier COPPER_INGOT = Identifier.fromString("minecraft:copper_ingot");
+    public static final Identifier SPYGLASS = Identifier.fromString("minecraft:spyglass");
 }
