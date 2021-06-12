@@ -271,7 +271,7 @@ public final class ItemIds {
     public static final Identifier RABBIT_HIDE = Identifier.fromString("rabbit_hide");
     public static final Identifier HORSE_ARMOR_LEATHER = Identifier.fromString("leather_horse_armor");
     public static final Identifier HORSE_ARMOR_IRON = Identifier.fromString("iron_horse_armor");
-    public static final Identifier HORSE_ARMOR_GOLD = Identifier.fromString("gold_horse_armor");
+    public static final Identifier HORSE_ARMOR_GOLD = Identifier.fromString("golden_horse_armor");
     public static final Identifier HORSE_ARMOR_DIAMOND = Identifier.fromString("diamond_horse_armor");
     public static final Identifier LEAD = Identifier.fromString("lead");
     public static final Identifier NAME_TAG = Identifier.fromString("name_tag");
@@ -332,7 +332,7 @@ public final class ItemIds {
     public static final Identifier BIRCH_SIGN = Identifier.fromString("birch_sign");
     public static final Identifier JUNGLE_SIGN = Identifier.fromString("jungle_sign");
     public static final Identifier ACACIA_SIGN = Identifier.fromString("acacia_sign");
-    public static final Identifier DARK_OAK_SIGN = Identifier.fromString("darkoak_sign");
+    public static final Identifier DARK_OAK_SIGN = Identifier.fromString("dark_oak_sign");
     public static final Identifier SWEET_BERRIES = Identifier.fromString("sweet_berries");
     public static final Identifier CAMERA = Identifier.fromString("camera");
     public static final Identifier COMPOUND = Identifier.fromString("compound");
