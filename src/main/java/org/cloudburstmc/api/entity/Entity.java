@@ -1,10 +1,13 @@
 package org.cloudburstmc.api.entity;
 
+import com.google.common.base.VerifyException;
 import com.nukkitx.math.vector.Vector2f;
 import com.nukkitx.math.vector.Vector3f;
 import org.checkerframework.checker.index.qual.NonNegative;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.cloudburstmc.api.Server;
+import org.cloudburstmc.api.entity.component.EntityComponent;
 import org.cloudburstmc.api.entity.misc.LightningBolt;
 import org.cloudburstmc.api.entity.passive.Bat;
 import org.cloudburstmc.api.event.entity.EntityDamageEvent;
@@ -23,6 +26,7 @@ import org.cloudburstmc.api.util.data.MountType;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public interface Entity {
@@ -284,4 +288,16 @@ public interface Entity {
 
     void close();
 
+    @NonNull
+    Set<Class<? extends EntityComponent>> providedComponents();
+
+    <C extends EntityComponent> boolean provides(EntityComponentType<C> type);
+
+    @NonNull
+    <C extends EntityComponent> Optional<C> get(EntityComponentType<C> type);
+
+    @NonNull
+    default <C extends EntityComponent> C ensureAndGet(EntityComponentType<C> type) {
+        return get(type).orElseThrow(() -> new IllegalArgumentException("Component class " + type.getIdentifier() + " isn't provided by this entity."));
+    }
 }
