@@ -343,7 +343,7 @@ public class BlockTypes {
     public static final BlockType MUD = BlockType.of(BlockIds.MUD);
     public static final BlockType MUD_BRICK_DOUBLE_SLAB = BlockType.of(BlockIds.MUD_BRICK_DOUBLE_SLAB, BlockTraits.IS_TOP_SLOT);
     public static final BlockType MUD_BRICK_SLAB = BlockType.of(BlockIds.MUD_BRICK_SLAB, BlockTraits.IS_TOP_SLOT);
-    public static final BlockType MUD_BRICK_STAIRS = BlockType.of(BlockIds.MUD_BRICK_STAIRS, BlockTraits.IS_UPSIDE_DOWN); // TODO: weirdo_direction
+    public static final BlockType MUD_BRICK_STAIRS = BlockType.of(BlockIds.MUD_BRICK_STAIRS, BlockTraits.IS_UPSIDE_DOWN, BlockTraits.DIRECTION);
     public static final BlockType MUD_BRICK_WALL = BlockType.of(BlockIds.MUD_BRICK_WALL, BlockTraits.WALL_CONNECTION_EAST, BlockTraits.HAS_POST, BlockTraits.WALL_CONNECTION_SOUTH, BlockTraits.WALL_CONNECTION_WEST, BlockTraits.WALL_CONNECTION_NORTH);
     public static final BlockType MUD_BRICKS = BlockType.of(BlockIds.MUD_BRICKS);
     public static final BlockType PACKED_MUD = BlockType.of(BlockIds.PACKED_MUD);
