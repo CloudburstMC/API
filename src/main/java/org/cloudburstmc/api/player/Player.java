@@ -177,4 +177,20 @@ public interface Player extends Creature, InventoryHolder {
     EnderChest getViewingEnderChest();
 
     void setViewingEnderChest(EnderChest chest);
+
+    float getHealth();
+
+    int getMaxHealth();
+
+    float getScaledHealth();
+
+    int getScaledMaxHealth();
+
+    void setHealth(float health);
+
+    void setHealthScale(int scale);
+
+    int getHealthScale();
+
+    boolean isHealthScaled();
 }

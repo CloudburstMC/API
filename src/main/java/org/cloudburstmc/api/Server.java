@@ -9,9 +9,12 @@ import org.cloudburstmc.api.permission.PermissionManager;
 import org.cloudburstmc.api.player.GameMode;
 import org.cloudburstmc.api.player.Player;
 import org.cloudburstmc.api.plugin.PluginManager;
+import org.cloudburstmc.api.registry.BlockRegistry;
 import org.cloudburstmc.api.registry.GameRuleRegistry;
+import org.cloudburstmc.api.registry.ItemRegistry;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 public interface Server {
@@ -33,6 +36,10 @@ public interface Server {
     PluginManager getPluginManager();
 
     GameRuleRegistry getGameRuleRegistry();
+
+    ItemRegistry getItemRegistry();
+
+    BlockRegistry getBlockRegistry();
 
     int getTick();
 
@@ -100,6 +107,12 @@ public interface Server {
 
     @Nullable
     Player getPlayer(String name);
+
+    /**
+     *
+     * @return A immutable copy of unique players currently on the server
+     */
+    Set<UUID> getUniquePlayers();
 
     void setAutoSave(boolean autoSave);
 
