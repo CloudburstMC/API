@@ -1,61 +1,43 @@
 package org.cloudburstmc.api.item;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.cloudburstmc.api.block.BlockType;
+import org.cloudburstmc.api.data.DataKey;
 import org.cloudburstmc.api.util.Identifier;
 
-public sealed interface ItemType permits BlockType, ItemTypes.IntItem {
-    Identifier getId();
+import java.util.Set;
 
-    boolean isBlock();
+import static com.google.common.base.Preconditions.checkNotNull;
 
-    boolean isPlaceable();
+public sealed class ItemType permits BlockType {
 
-    @Nullable
-    BlockType getBlock();
+    private final Identifier id;
+    private final Set<DataKey<?, ?>> dataKeys;
 
-    @Nullable
-    Class<?> getMetadataClass();
-
-    int getMaximumStackSize();
-
-    default ItemStack createItem() {
-        return createItem(1);
+    protected ItemType(Identifier id, Set<DataKey<?, ?>> dataKeys) {
+        this.id = id;
+        this.dataKeys = dataKeys;
     }
 
-    ItemStack createItem(int amount, Object... metadata);
-
-    default int getAttackDamage() {
-        return 2;
+    public final Identifier getId() {
+        return id;
     }
 
-    default int getArmorPoints() {
-        return 0;
+    public Set<DataKey<?, ?>> getDataKeys() {
+        return dataKeys;
     }
 
-    default int getToughness() {
-        return 0;
+    @Override
+    public String toString() {
+        return "ItemType{id=" + id + ')';
     }
 
-    default int getDurability() {
-        return 0;
+    public static ItemType of(Identifier id) {
+        return of(id, new DataKey[0]);
     }
 
-    default short getFuelTime() {
-        return 0;
+    public static ItemType of(Identifier id, DataKey<?, ?>... dataKeys) {
+        checkNotNull(id, "id");
+
+        return new ItemType(id, Set.of(dataKeys));
     }
-
-    default BlockType getBlockType() {
-        return null;
-    }
-
-    default boolean isStackable() {
-        return getMaximumStackSize() > 1;
-    }
-
-    @Nullable
-    ToolType getToolType();
-
-    @Nullable
-    TierType getTierType();
 }

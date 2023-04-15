@@ -1,31 +1,30 @@
 package org.cloudburstmc.api.registry;
 
 import com.google.common.collect.ImmutableList;
-import org.cloudburstmc.api.block.BlockState;
+import org.cloudburstmc.api.data.BehaviorKey;
 import org.cloudburstmc.api.item.ItemStack;
 import org.cloudburstmc.api.item.ItemType;
 import org.cloudburstmc.api.item.behavior.ItemBehavior;
 import org.cloudburstmc.api.util.Identifier;
+import org.cloudburstmc.api.util.behavior.BehaviorCollection;
 
-public interface ItemRegistry extends Registry {
+public interface ItemRegistry extends BehaviorRegistry<ItemType> {
 
     void register(ItemType type, ItemBehavior behavior, Identifier... identifiers) throws RegistryException;
 
     void registerCreativeItem(ItemStack item);
 
-    default ItemStack getItem(BlockState state) throws RegistryException {
-        return getItem(state, 1);
+    BehaviorCollection getBehaviors(ItemType type);
+
+    default <T> T getBehavior(ItemType type, BehaviorKey<?, T> key) {
+        return getBehaviors(type).get(key);
     }
-
-    ItemStack getItem(BlockState state, int amount) throws RegistryException;
-
-    default ItemStack getItem(ItemType type) throws RegistryException {
-        return getItem(type, 1);
-    }
-
-    ItemStack getItem(ItemType type, int amount, Object... metadata) throws RegistryException;
 
     Identifier getIdentifier(int runtimeId) throws RegistryException;
+
+    ItemType getType(Identifier runtimeId, int data);
+
+    ItemType getType(int runtimeId, int data);
 
     ImmutableList<Identifier> getItems();
 

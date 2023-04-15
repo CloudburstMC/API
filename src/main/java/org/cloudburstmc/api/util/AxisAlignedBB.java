@@ -1,8 +1,8 @@
 package org.cloudburstmc.api.util;
 
-import com.nukkitx.math.GenericMath;
-import com.nukkitx.math.vector.Vector3f;
-import com.nukkitx.math.vector.Vector3i;
+import org.cloudburstmc.math.GenericMath;
+import org.cloudburstmc.math.vector.Vector3f;
+import org.cloudburstmc.math.vector.Vector3i;
 
 
 public interface AxisAlignedBB extends Cloneable {
@@ -15,6 +15,10 @@ public interface AxisAlignedBB extends Cloneable {
         this.setMaxY(maxY);
         this.setMaxZ(maxZ);
         return this;
+    }
+
+    default AxisAlignedBB addCoord(Vector3i v) {
+        return addCoord(v.getX(), v.getY(), v.getZ());
     }
 
     default AxisAlignedBB addCoord(Vector3f v) {

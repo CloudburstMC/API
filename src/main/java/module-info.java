@@ -10,7 +10,7 @@ open module org.cloudburstmc.api {
     requires static javax.inject;
     requires java.desktop;
     requires static lombok;
-    requires com.nukkitx.math;
+    requires org.cloudburstmc.math.immutable;
     requires org.slf4j;
 
     exports org.cloudburstmc.api;
@@ -21,6 +21,7 @@ open module org.cloudburstmc.api {
     exports org.cloudburstmc.api.blockentity;
     exports org.cloudburstmc.api.command;
     exports org.cloudburstmc.api.crafting;
+    exports org.cloudburstmc.api.data;
     exports org.cloudburstmc.api.enchantment;
     exports org.cloudburstmc.api.enchantment.behavior;
     exports org.cloudburstmc.api.entity;
@@ -57,5 +58,7 @@ open module org.cloudburstmc.api {
     exports org.cloudburstmc.api.potion;
     exports org.cloudburstmc.api.registry;
     exports org.cloudburstmc.api.util;
+    exports org.cloudburstmc.api.util.behavior;
     exports org.cloudburstmc.api.util.data;
+    exports org.cloudburstmc.api.inventory.screen;
 }

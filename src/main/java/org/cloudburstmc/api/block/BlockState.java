@@ -1,7 +1,6 @@
 package org.cloudburstmc.api.block;
 
 import com.google.common.collect.ImmutableMap;
-import org.cloudburstmc.api.block.behavior.BlockBehavior;
 import org.cloudburstmc.api.block.trait.BlockTrait;
 import org.cloudburstmc.api.block.trait.BooleanBlockTrait;
 import org.cloudburstmc.api.block.trait.IntegerBlockTrait;
@@ -18,20 +17,10 @@ public class BlockState {
     private final BlockType type;
     private final Map<BlockTrait<?>, Comparable<?>> traits;
     private Map<BlockTrait<?>, BlockState[]> blockStates;
-    private BlockBehavior behavior;
 
     public BlockState(BlockType type, Map<BlockTrait<?>, Comparable<?>> traits) {
-        this(type, traits, null);
-    }
-
-    public BlockState(BlockType type, Map<BlockTrait<?>, Comparable<?>> traits, BlockBehavior behavior) {
         this.type = type;
         this.traits = traits;
-        this.behavior = behavior;
-    }
-
-    public void setBehavior(BlockBehavior behavior) {
-        this.behavior = behavior;
     }
 
     public BlockType getType() {
@@ -102,10 +91,6 @@ public class BlockState {
             builder.setCharAt(builder.length() - 1, '}');
         }
         return builder.toString();
-    }
-
-    public BlockBehavior getBehavior() {
-        return this.behavior;
     }
 
     public BlockState toggleTrait(BooleanBlockTrait trait) {

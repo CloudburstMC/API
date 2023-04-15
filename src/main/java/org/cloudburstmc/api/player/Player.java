@@ -1,18 +1,17 @@
 package org.cloudburstmc.api.player;
 
-import com.nukkitx.math.vector.Vector3i;
 import org.cloudburstmc.api.Server;
 import org.cloudburstmc.api.blockentity.EnderChest;
 import org.cloudburstmc.api.crafting.CraftingGrid;
 import org.cloudburstmc.api.entity.Creature;
 import org.cloudburstmc.api.inventory.ContainerInventory;
-import org.cloudburstmc.api.inventory.Inventory;
 import org.cloudburstmc.api.inventory.InventoryHolder;
 import org.cloudburstmc.api.inventory.PlayerInventory;
 import org.cloudburstmc.api.level.Level;
 import org.cloudburstmc.api.level.Location;
 import org.cloudburstmc.api.player.skin.Skin;
 import org.cloudburstmc.api.util.data.CardinalDirection;
+import org.cloudburstmc.math.vector.Vector3i;
 
 import java.util.OptionalLong;
 import java.util.UUID;
@@ -135,20 +134,6 @@ public interface Player extends Creature, InventoryHolder {
     boolean isSpawned();
 
     GameMode getGamemode();
-
-    byte getWindowId(Inventory inventory);
-
-    default byte addWindow(Inventory window) {
-        return addWindow(window, null, false);
-    }
-
-    default byte addWindow(Inventory window, Byte forceId) {
-        return addWindow(window, forceId, false);
-    }
-
-    byte addWindow(Inventory window, Byte forceId, boolean isPermanent);
-
-    void removeWindow(Inventory inventory);
 
     String getDisplayName();
 

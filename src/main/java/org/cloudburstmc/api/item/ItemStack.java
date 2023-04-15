@@ -1,156 +1,153 @@
 package org.cloudburstmc.api.item;
 
-import com.nukkitx.math.GenericMath;
-import org.checkerframework.checker.nullness.qual.NonNull;
+import com.google.common.collect.ImmutableMap;
+import org.checkerframework.checker.index.qual.NonNegative;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.cloudburstmc.api.block.BlockState;
-import org.cloudburstmc.api.enchantment.EnchantmentInstance;
-import org.cloudburstmc.api.enchantment.EnchantmentType;
-import org.cloudburstmc.api.item.behavior.ItemBehavior;
-import org.cloudburstmc.api.registry.ItemRegistry;
-import org.cloudburstmc.api.util.Identifier;
+import org.cloudburstmc.api.block.BlockType;
+import org.cloudburstmc.api.block.BlockTypes;
+import org.cloudburstmc.api.data.DataKey;
+import org.cloudburstmc.api.data.DataStore;
 
-import javax.inject.Inject;
-import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
 
-@NonNull
-public interface ItemStack extends Comparable<ItemStack> {
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
-    @Inject
-    ItemRegistry registry = null; //does that work?
+public final class ItemStack implements DataStore, Comparable<ItemStack> {
 
-    ItemType getType();
+    public static final ItemStack EMPTY = ItemStack.builder(BlockTypes.AIR).build();
 
-    int getAmount();
+    private final ItemType type;
+    private final int count;
+    private final ImmutableMap<DataKey<?, ?>, ?> metadata;
 
-    default boolean isNull() {
-        return true;
+    ItemStack(ItemType type, int count, Map<DataKey<?, ?>, ?> metadata) {
+        this.type = type;
+        this.count = count;
+        this.metadata = ImmutableMap.copyOf(metadata);
     }
 
-    String getName();
-
-    default boolean hasName() {
-        return getName() != null;
+    public static ItemStackBuilder builder() {
+        return new ItemStackBuilder(null, 1, Collections.emptyMap());
     }
 
-    List<String> getLore();
-
-    default boolean hasEnchantments() {
-        return !getEnchantments().isEmpty();
+    public static ItemStackBuilder builder(BlockState state) {
+        return new ItemStackBuilder(state.getType(), 1, Collections.emptyMap())
+                .data(ItemKeys.BLOCK_STATE, state);
     }
 
-    Map<EnchantmentType, EnchantmentInstance> getEnchantments();
-
-    default EnchantmentInstance getEnchantment(EnchantmentType enchantment) {
-        for (EnchantmentInstance ench : getEnchantments().values()) {
-            if (ench.getType() == enchantment) {
-                return ench;
-            }
-        }
-
-        return null;
+    public static ItemStackBuilder builder(ItemType type) {
+        return new ItemStackBuilder(type, 1, Collections.emptyMap());
     }
 
-    Collection<Identifier> getCanDestroy();
-
-    default boolean canDestroy(BlockState state) {
-        return getCanDestroy().contains(state.getType().getId());
+    public static ItemStack from(BlockState state) {
+        return from(state, 1);
     }
 
-    Collection<Identifier> getCanPlaceOn();
-
-    default boolean canPlaceOn(BlockState state) {
-        return getCanPlaceOn().contains(state.getType().getId());
+    public static ItemStack from(BlockState state, @NonNegative int amount) {
+        checkNotNull(state, "state");
+        checkArgument(amount > 0, "Amount cannot be negative");
+        return new ItemStack(state.getType(), amount, Map.of(ItemKeys.BLOCK_STATE, state));
     }
 
-    default <T> T getMetadata(Class<T> metadataClass) {
-        return getMetadata(metadataClass, null);
+    public static ItemStack from(ItemType type) {
+        return from(type, 1);
     }
 
-    <T> T getMetadata(Class<T> metadataClass, T defaultValue);
-
-    <T> boolean hasMetadata(Class<T> metadataClass);
-
-    boolean hasTag();
-
-    ItemStackBuilder toBuilder();
-
-//    RecipeItemStackBuilder toRecipeBuilder();
-
-    ItemBehavior getBehavior();
-
-    boolean isMergeable(@NonNull ItemStack itemStack);
-
-    boolean equals(@Nullable ItemStack item);
-
-    default boolean isFull() {
-        return getAmount() >= getType().getMaximumStackSize();
+    public static ItemStack from(ItemType type, @NonNegative int amount) {
+        checkNotNull(type, "type");
+        checkArgument(amount > 0, "Amount cannot be negative");
+        return new ItemStack(type, amount, Collections.emptyMap());
     }
 
-    default boolean equals(@Nullable ItemStack other, boolean checkAmount) {
-        return equals(other, checkAmount, true);
+    public ItemType getType() {
+        return type;
     }
 
-    boolean equals(@Nullable ItemStack other, boolean checkAmount, boolean checkData);
-
-    default ItemStack decrementAmount() {
-        return decrementAmount(1);
+    public int getCount() {
+        return count;
     }
 
-    default ItemStack decrementAmount(int amount) {
-        return withAmount(getAmount() - amount);
+    public ItemStackBuilder toBuilder() {
+        return new ItemStackBuilder(this.type, this.count, this.metadata);
     }
 
-    default ItemStack incrementAmount() {
-        return incrementAmount(1);
+    public ItemStack decreaseCount() {
+        return withCount(-1);
     }
 
-    default ItemStack incrementAmount(int amount) {
-        return withAmount(getAmount() + amount);
+    public ItemStack decreaseCount(int count) {
+        return withCount(-count);
     }
 
-    default ItemStack withAmount(int amount) {
-        if (this.getAmount() == amount) {
+    public ItemStack increaseCount() {
+        return addCount(1);
+    }
+
+    public ItemStack increaseCount(int count) {
+        return addCount(count);
+    }
+
+    public ItemStack addCount(int delta) {
+        return withCount(this.count + delta);
+    }
+
+    public ItemStack withCount(int amount) {
+        if (this.count == amount) {
             return this;
         }
-        return toBuilder().amount(GenericMath.clamp(amount, 0, getBehavior().getMaxStackSize(this))).build();
+        return toBuilder().amount(amount).build();
     }
 
-    default ItemStack withEnchantment(EnchantmentInstance enchantment) {
-        return toBuilder().addEnchantment(enchantment).build();
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> T get(DataKey<T, ?> key) {
+        checkNotNull(key, "key");
+        Object data = metadata.get(key);
+        return data == null ? key.getDefaultValue() : (T) data;
     }
 
-    ItemStack withData(Object data);
-
-    ItemStack withData(Class<?> metadataClass, Object data);
-
-    default BlockState getBlockState() {
-        throw new UnsupportedOperationException("Item " + this.getType() + " cannot be converted to a block state");
+    public Optional<BlockState> getBlockState() {
+        return Optional.ofNullable(this.isBlock() ? this.get(ItemKeys.BLOCK_STATE) : null);
     }
 
-/*     static ItemStack get(BlockState state) { // Do we need get methods in ItemStack?
-        return get(state, 1);
+    public ImmutableMap<DataKey<?, ?>, ?> getAllMetadata() {
+        return metadata;
     }
 
-   static ItemStack get(BlockState state, int amount) {
-        return this.registry.getItem(state, amount);
+    @Nullable
+    public BlockState getEnsuringBlockState() {
+        if(!this.isBlock()) {
+            throw new NullPointerException("Current Item isn't a block so it can't have a BlockState.");
+        }
+
+        return this.get(ItemKeys.BLOCK_STATE);
     }
 
-    static ItemStack get(ItemType type) {
-        return get(type, 1);
+    public boolean isBlock() {
+        return type instanceof BlockType;
     }
-
-    static ItemStack get(ItemType type, int amount, Object... metadata) {
-        return ItemRegistry.get().getItem(type, amount, metadata);
-    }*/
 
     @Override
-    default int compareTo(ItemStack other) {
+    public int compareTo(ItemStack other) {
         if (other.getType().equals(this.getType())) {
-            return this.getAmount() - other.getAmount();
+            return this.getCount() - other.getCount();
         }
         return this.getType().getId().compareTo(other.getType().getId());
+    }
+
+    public boolean isSimilar(ItemStack other) {
+        return this.getType().equals(other.getType());
+    }
+
+    public boolean isSimilarMetadata(ItemStack other) {
+        return getAllMetadata().equals(other.getAllMetadata());
+    }
+
+    public boolean isMergeable(ItemStack other) {
+        return isSimilar(other) && isSimilarMetadata(other);
     }
 }
