@@ -1,8 +1,7 @@
 package org.cloudburstmc.api.block;
 
-import org.cloudburstmc.api.util.Identifier;
-
 import lombok.experimental.UtilityClass;
+import org.cloudburstmc.api.util.Identifier;
 
 @SuppressWarnings("RedundantModifiersUtilityClassLombok")
 @UtilityClass
@@ -155,6 +154,7 @@ public final class BlockIds {
     public static final Identifier COBBLED_DEEPSLATE_WALL = Identifier.fromString("cobbled_deepslate_wall");
     public static final Identifier COBBLESTONE = Identifier.fromString("cobblestone");
     public static final Identifier COBBLESTONE_WALL = Identifier.fromString("cobblestone_wall");
+    public static final Identifier COBWEB = Identifier.fromString("web");
     public static final Identifier COCOA = Identifier.fromString("cocoa");
     public static final Identifier COLORED_TORCH_BP = Identifier.fromString("colored_torch_bp");
     public static final Identifier COLORED_TORCH_RG = Identifier.fromString("colored_torch_rg");
@@ -247,12 +247,12 @@ public final class BlockIds {
     public static final Identifier DIRT_WITH_ROOTS = Identifier.fromString("dirt_with_roots");
     public static final Identifier DISPENSER = Identifier.fromString("dispenser");
     public static final Identifier DOUBLE_CUT_COPPER_SLAB = Identifier.fromString("double_cut_copper_slab");
+    public static final Identifier DOUBLE_OAK_SLAB = Identifier.fromString("double_wooden_slab");
     public static final Identifier DOUBLE_PLANT = Identifier.fromString("double_plant");
     public static final Identifier DOUBLE_STONE_SLAB = Identifier.fromString("double_stone_block_slab");
     public static final Identifier DOUBLE_STONE_SLAB2 = Identifier.fromString("double_stone_block_slab2");
     public static final Identifier DOUBLE_STONE_SLAB3 = Identifier.fromString("double_stone_block_slab3");
     public static final Identifier DOUBLE_STONE_SLAB4 = Identifier.fromString("double_stone_block_slab4");
-    public static final Identifier DOUBLE_WOODEN_SLAB = Identifier.fromString("double_wooden_slab");
     public static final Identifier DRAGON_EGG = Identifier.fromString("dragon_egg");
     public static final Identifier DRIED_KELP_BLOCK = Identifier.fromString("dried_kelp_block");
     public static final Identifier DRIPSTONE_BLOCK = Identifier.fromString("dripstone_block");
@@ -806,7 +806,6 @@ public final class BlockIds {
     public static final Identifier WEATHERED_CUT_COPPER_SLAB = Identifier.fromString("weathered_cut_copper_slab");
     public static final Identifier WEATHERED_CUT_COPPER_STAIRS = Identifier.fromString("weathered_cut_copper_stairs");
     public static final Identifier WEATHERED_DOUBLE_CUT_COPPER_SLAB = Identifier.fromString("weathered_double_cut_copper_slab");
-    public static final Identifier WEB = Identifier.fromString("web");
     public static final Identifier WEEPING_VINES = Identifier.fromString("weeping_vines");
     public static final Identifier WHEAT = Identifier.fromString("wheat");
     public static final Identifier WHITE_CANDLE = Identifier.fromString("white_candle");
